@@ -1,4 +1,5 @@
 #include<iostream>
+#include<windows.h>
 
 using namespace std;
 
@@ -8,10 +9,13 @@ class Figure{
  		int height;
  		int rad;
  		int osn;
+ 		const float pi = 3.14;
  		int prug(int width, int height);
  		int ptreg(int osn, int height);
  		int ptrap(int width, int height, int osn);
  		int pkrug(int rad);
+		int paral(int width, int height, int osn);
+
 
 };
 
@@ -26,7 +30,10 @@ int Figure::ptrap(int width, int height, int osn){
 }
 int Figure::pkrug(int rad){
 	rad = rad*rad;
-	return 3.14 * rad;
+	return pi * rad;
+}
+int Figure::paral(int width, int height, int osn){
+	return width * height * osn;
 }
 
 
@@ -39,6 +46,7 @@ int main(){
 	cout<<"Выберите цифру 2 для расчета площади треугольника.\n";
 	cout<<"Выберите цифру 3 для расчета площади трапеции\n";
 	cout<<"Выберите цифру 4 для расчета площади круга.\n";
+	cout<<"Выберите цифру 5 для расчета объема параллепипеда.\n";
 	char znac;
 	int sum, chi1, chi2, chi3;
 	cin>>znac;
@@ -75,6 +83,16 @@ int main(){
 		cin>>chi1;
 		sum = fig.pkrug(chi1);
 		cout<<"Площадь круга равна: "<<sum;
+		break;
+		case '5':
+		cout<<"Введите основание параллепипеда а: \n";
+		cin>>chi1;
+		cout<<"Введите основание параллепипеда б: \n";
+		cin>>chi2;
+		cout<<"Введите основание параллепипеда с: \n";
+		cin>>chi3;
+		sum = fig.paral(chi1, chi2, chi3);
+		cout<<"Обьём параллепипеда равен: "<<sum;
 		break;
 		default:
 		cout<<"Введите правильное число.";
