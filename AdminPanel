@@ -1,8 +1,0 @@
-#include <iostream>
-
-
-int main(){
-int admin = 0;
-bool GEr = true;
-return 0;
-}
